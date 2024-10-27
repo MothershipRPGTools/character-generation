@@ -1,9 +1,9 @@
 import random_default from "random";
+import type { Character } from "./character";
 import { ExpertSkill, MasterSkill, type Skill, TrainedSkill } from "./skills";
 
-abstract class Class {
+export abstract class Class {
   abstract TRAUMA_RESPONSE: string;
-  constructor(readonly name: string) {}
 
   abstract applyStatChanges(character: Character): Character;
   abstract chooseSkills(currentSkills: Skill[]): Skill[];
@@ -57,7 +57,11 @@ export class Android extends Class {
     character.maxWounds += 1;
 
     const randomStat = random_default.choice(Object.keys(character.stats));
+    if (!randomStat) {
+      throw new Error("No random stat chosen.");
+    }
     character.stats[randomStat] -= 10;
+    return character;
   }
 
   chooseSkills(currentSkills: Skill[]) {
@@ -86,7 +90,11 @@ export class Scientist extends Class {
     character.stats.intellect += 10;
     character.saves.sanity += 30;
     const randomStat = random_default.choice(Object.keys(character.stats));
+    if (!randomStat) {
+      throw new Error("No random stat chosen.");
+    }
     character.stats[randomStat] += 5;
+    return character;
   }
 
   chooseSkills(currentSkills: Skill[]): Skill[] {
@@ -124,6 +132,8 @@ export class Teamster extends Class {
     for (const save of Object.keys(character.saves)) {
       character.saves[save] += 10;
     }
+
+    return character;
   }
 
   chooseSkills(currentSkills: Skill[]): Skill[] {

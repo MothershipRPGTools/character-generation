@@ -1,6 +1,7 @@
 // @ts-nocheck
 import random_default from "random";
 import { type MockedFunction, beforeEach, describe, expect, test, vi } from "vitest";
+import type { Character } from "../src/character";
 import { Android, Marine, Scientist, Teamster } from "../src/classes";
 import { ExpertSkill, MasterSkill, type Skill, TrainedSkill } from "../src/skills";
 
@@ -11,11 +12,11 @@ vi.mock("random", () => ({
 }));
 
 describe("Class Tests", () => {
-  let character: any;
+  let character: Character;
 
   beforeEach(() => {
     character = {
-      stats: { combat: 0, intellect: 0, strength: 0 },
+      stats: { combat: 0, intellect: 0, strength: 0, speed: 0 },
       saves: { body: 0, fear: 0, sanity: 0 },
       maxWounds: 0,
     };
