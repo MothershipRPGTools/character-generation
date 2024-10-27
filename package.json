@@ -10,7 +10,7 @@
   "homepage": "https://github.com/MothershipRPGTools/character-generation-ts#readme",
   "devDependencies": {
     "@biomejs/biome": "^1.9.3",
-    "@nx/plugin": "19.8.4",
+    "@nx/plugin": "20.0.6",
     "nx": "19.8.4",
     "syncpack": "^13.0.0"
   },
