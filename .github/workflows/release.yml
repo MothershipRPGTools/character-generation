@@ -1,0 +1,47 @@
+name: Release Workflow
+
+on:
+  push:
+    tags: ['*']
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Restore nx cache
+      id: restore-nx-cache
+      uses: actions/cache/restore@v4
+      with:
+        path: .nx/cache
+        key: ${{ runner.arch }}-nx-cache-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ github.ref }}-${{ github.sha }}
+        restore-keys: |
+          ${{ runner.arch }}-nx-cache-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ github.ref }}
+          ${{ runner.arch }}-nx-cache-${{ hashFiles('**/pnpm-lock.yaml') }}-refs/heads/main
+    
+    - uses: pnpm/action-setup@v4
+      with:
+        version: '9'
+        run_install: false
+
+    - name: Setup node.js v23.1.0
+      uses: actions/setup-node@v4
+      with:
+        cache: pnpm
+        node-version: v23.1.0
+
+    - name: Persist installed dependencies
+      run: pnpm install --frozen-lockfile
+
+    - name: Run build
+      run: pnpm nx run-many -t build
+
+    - name: Set publishing config
+      run: pnpm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
+      env:
+        NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+    - name: Deploy packages
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      run: pnpm nx run-many -t deploy
