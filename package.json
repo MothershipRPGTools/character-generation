@@ -1,0 +1,18 @@
+{
+  "name": "@mothership-rpg/character-generation-root",
+  "version": "1.0.0",
+  "description": "A collection of packages for creating characters in Mothership RPG",
+  "author": "Evan Smith",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MothershipRPGTools/character-generation-ts/issues"
+  },
+  "homepage": "https://github.com/MothershipRPGTools/character-generation-ts#readme",
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.3",
+    "@nx/plugin": "19.8.4",
+    "@tsconfig/bun": "^1.0.7",
+    "nx": "19.8.4",
+    "syncpack": "^13.0.0"
+  }
+}

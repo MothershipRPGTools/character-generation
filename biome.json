@@ -1,0 +1,17 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.9.2/schema.json",
+  "formatter": {
+    "useEditorconfig": true
+  },
+  "files": {
+    "ignore": [
+      "**/node_modules",
+      "**/dist",
+      "packages/core/generators/**",
+      "packages/circleci/src/types",
+      "packages/travisci/src/types/**",
+      "packages/concourseci/src/types/**",
+      "packages/gitlab-ci/src/types/**"
+    ]
+  }
+}
