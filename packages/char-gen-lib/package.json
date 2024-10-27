@@ -6,7 +6,7 @@
   "files": ["dist"],
   "scripts": {
     "build": "tsc && bun build src/index.ts --outdir ./dist --target node",
-    "deploy": "pnpm publish --no-git-checks || echo 'This package version is already published!'",
+    "deploy": "pnpm publish --no-git-checks --access public || echo 'This package version is already published!'",
     "lint": "biome check src/",
     "lint:fix": "biome check src/ --fix",
     "format": "biome format src/",
