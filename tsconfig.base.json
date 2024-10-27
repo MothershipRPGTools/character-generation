@@ -1,6 +1,5 @@
 {
   "extends": "@tsconfig/bun/tsconfig.json",
-  "exclude": ["packages/core/generators/**/files/**"],
   "compilerOptions": {
     "declaration": true,
     "emitDeclarationOnly": true,

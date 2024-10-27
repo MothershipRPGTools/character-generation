@@ -11,8 +11,10 @@
   "devDependencies": {
     "@biomejs/biome": "^1.9.3",
     "@nx/plugin": "19.8.4",
-    "@tsconfig/bun": "^1.0.7",
     "nx": "19.8.4",
     "syncpack": "^13.0.0"
+  },
+  "dependencies": {
+    "@tsconfig/bun": "^1.0.7"
   }
 }
