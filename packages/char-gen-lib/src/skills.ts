@@ -1,4 +1,4 @@
-abstract class Skill {
+export abstract class Skill {
   constructor(
     readonly name: string,
     readonly dependsOn?: Skill[],
@@ -33,6 +33,27 @@ export class TrainedSkill extends Skill {
 
   toString() {
     return this.name;
+  }
+
+  static get skills() {
+    return [
+      TrainedSkill.LINGUISTICS,
+      TrainedSkill.ZOOLOGY,
+      TrainedSkill.BOTANY,
+      TrainedSkill.GEOLOGY,
+      TrainedSkill.INDUSTRIALEQUIPMENT,
+      TrainedSkill.JURYRIGGING,
+      TrainedSkill.CHEMISTRY,
+      TrainedSkill.COMPUTERS,
+      TrainedSkill.ZEROG,
+      TrainedSkill.MATHEMATICS,
+      TrainedSkill.ART,
+      TrainedSkill.ARCHAEOLOGY,
+      TrainedSkill.THEOLOGY,
+      TrainedSkill.MILITARYTRAINING,
+      TrainedSkill.RIMWISE,
+      TrainedSkill.ATHLETICS,
+    ];
   }
 }
 
@@ -87,6 +108,26 @@ export class ExpertSkill extends Skill {
 
   toString() {
     return this.name;
+  }
+
+  static get skills() {
+    return [
+      ExpertSkill.PSYCHOLOGY,
+      ExpertSkill.PATHOLOGY,
+      ExpertSkill.FIELDMEDICINE,
+      ExpertSkill.ECOLOGY,
+      ExpertSkill.ASTEROIDMINING,
+      ExpertSkill.MECHANICALREPAIR,
+      ExpertSkill.EXPLOSIVES,
+      ExpertSkill.PHARMACOLOGY,
+      ExpertSkill.HACKING,
+      ExpertSkill.PILOTING,
+      ExpertSkill.PHYSICS,
+      ExpertSkill.MYSTICISM,
+      ExpertSkill.WILDERNESSSURVIVAL,
+      ExpertSkill.FIREARMS,
+      ExpertSkill.HANDTOHANDCOMBAT,
+    ];
   }
 
   get flatDepends() {

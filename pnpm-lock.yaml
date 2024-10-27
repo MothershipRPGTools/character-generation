@@ -26,6 +26,10 @@ importers:
         version: 13.0.0(typescript@5.6.3)
 
   packages/char-gen-lib:
+    dependencies:
+      random:
+        specifier: ^5.1.1
+        version: 5.1.1
     devDependencies:
       '@biomejs/biome':
         specifier: ^1.9.2
@@ -2565,6 +2569,10 @@ packages:
 
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
+
+  random@5.1.1:
+    resolution: {integrity: sha512-iidvORUvXY1ItoYxO0eduHCKl22QV0G6460vRHe862dUagJKPhRyjUGwK8ioOCG4NRuFvExHFpqMngsnr2miwA==}
+    engines: {node: '>=18'}
 
   react-is@18.3.1:
     resolution: {integrity: sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==}
@@ -6093,6 +6101,8 @@ snapshots:
   pure-rand@6.1.0: {}
 
   queue-microtask@1.2.3: {}
+
+  random@5.1.1: {}
 
   react-is@18.3.1: {}
 
