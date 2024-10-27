@@ -43,5 +43,4 @@ jobs:
         NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
     - name: Deploy packages
-      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       run: pnpm nx run-many -t deploy
