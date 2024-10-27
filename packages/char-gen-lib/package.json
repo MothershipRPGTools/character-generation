@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "A library for creating characters in Mothership RPG",
   "main": "dist/index.js",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc && bun build src/index.ts --outdir ./dist --target node",
     "lint": "biome check src/",
@@ -23,10 +25,8 @@
   "homepage": "https://github.com/MothershipRPGTools/character-generation-ts#readme",
   "devDependencies": {
     "@biomejs/biome": "^1.9.2",
-    "@tsconfig/bun": "^1.0.7",
+    "bun": "^1.1.29",
     "typescript": "^5.6.2",
-    "vitest": "^2.1.1",
-    "bun": "^1.1.29"
-  },
-  "dependencies": {}
+    "vitest": "^2.1.1"
+  }
 }

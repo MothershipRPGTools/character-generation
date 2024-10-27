@@ -1,1 +1,1 @@
-export const dummyVar = "dummyVar";
+export * from "./skills";

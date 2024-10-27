@@ -1,10 +1,14 @@
-export type Skill = {
-  name: string;
-  bonus: number;
-  dependsOn?: Skill[];
-};
+export abstract class Skill {
+  constructor(
+    readonly name: string,
+    readonly dependsOn?: Skill[],
+  ) {}
+}
 
-export class TrainedSkill {
+/**
+ * Trained skills are the most basic skills that a character can have.
+ */
+export class TrainedSkill extends Skill {
   static readonly LINGUISTICS = new TrainedSkill("Linguistics");
   static readonly ZOOLOGY = new TrainedSkill("Zoology");
   static readonly BOTANY = new TrainedSkill("Botany");
@@ -23,14 +27,19 @@ export class TrainedSkill {
   static readonly ATHLETICS = new TrainedSkill("Athletics");
 
   static readonly BONUS = 10;
-  private constructor(private readonly name: string) {}
+  private constructor(readonly name: string) {
+    super(name);
+  }
 
   toString() {
     return this.name;
   }
 }
 
-export class ExpertSkill {
+/**
+ * Expert skills are more specialized than trained skills.
+ */
+export class ExpertSkill extends Skill {
   static readonly PSYCHOLOGY = new ExpertSkill("Psychology", [TrainedSkill.LINGUISTICS, TrainedSkill.ZOOLOGY]);
   static readonly PATHOLOGY = new ExpertSkill("Pathology", [TrainedSkill.ZOOLOGY, TrainedSkill.BOTANY]);
   static readonly FIELDMEDICINE = new ExpertSkill("Field Medicine", [TrainedSkill.ZOOLOGY]);
@@ -70,16 +79,25 @@ export class ExpertSkill {
 
   static readonly BONUS = 15;
   private constructor(
-    private readonly name: string,
-    private readonly dependsOn: TrainedSkill[],
-  ) {}
+    readonly name: string,
+    readonly dependsOn: TrainedSkill[],
+  ) {
+    super(name, dependsOn);
+  }
 
   toString() {
     return this.name;
   }
+
+  get flatDepends() {
+    return this.dependsOn;
+  }
 }
 
-export class MasterSkill {
+/**
+ * Master skills are the MOST specialized skills that a character can have.
+ */
+export class MasterSkill extends Skill {
   static readonly SOPHONTOLOGY = new MasterSkill("Sophontology", [ExpertSkill.PSYCHOLOGY]);
   static readonly EXOBIOLOGY = new MasterSkill("Exobiology", [ExpertSkill.PATHOLOGY]);
   static readonly SURGERY = new MasterSkill("Surgery", [ExpertSkill.PATHOLOGY, ExpertSkill.FIELDMEDICINE]);
@@ -94,11 +112,17 @@ export class MasterSkill {
 
   static readonly BONUS = 20;
   private constructor(
-    private readonly name: string,
-    private readonly dependsOn: ExpertSkill[],
-  ) {}
+    readonly name: string,
+    readonly dependsOn: ExpertSkill[],
+  ) {
+    super(name, dependsOn);
+  }
 
   toString() {
     return this.name;
+  }
+
+  get flatDepends() {
+    return this.dependsOn.flatMap((expertSkill) => [expertSkill, ...expertSkill.flatDepends]);
   }
 }
