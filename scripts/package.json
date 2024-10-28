@@ -8,13 +8,16 @@
   "scripts": {
     "gen-skilltree": "bun build src/gen-skilltree.ts --outdir ./dist --target node && node ./dist/gen-skilltree.js",
     "gen-char": "bun build src/gen-char.ts --outdir ./dist --target node && node ./dist/gen-char.js",
-    "gen-wound": "bun build src/gen-wound.ts --outdir ./dist --target node && node ./dist/gen-wound.js"
+    "gen-wound": "bun build src/gen-wound.ts --outdir ./dist --target node && node ./dist/gen-wound.js",
+    "gen-items": "bun build src/gen-items.ts --outdir ./dist --target node && node ./dist/gen-items.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@mothership-rpg/characters": "workspace:*",
+    "@mothership-rpg/wounds": "workspace:*",
+    "@mothership-rpg/items": "workspace:*",
     "@types/node": "^22.8.1",
     "bun": "^1.1.29",
     "ts-node": "^10.9.2",

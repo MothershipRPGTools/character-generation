@@ -72,11 +72,45 @@ export type AllWounds =
   | typeof FireAndExplosives
   | typeof GoreAndMassive;
 
+export enum WoundAdvantage {
+  Advantage = 1,
+  Disadvantage = 2,
+  Neutral = 3,
+}
+
 export class Wound {
   private wound?: string;
-  constructor(public woundType: AllWounds) {}
-  public rollSeverity(): string {
-    const severity = random_default.uniformInt(1, 10)();
+  constructor(
+    public woundType: AllWounds,
+    public advOrDisadv: WoundAdvantage = WoundAdvantage.Neutral,
+  ) {}
+  public rollSeverity(advOrDisadv?: WoundAdvantage): string {
+    let advantage = this.advOrDisadv;
+    if (advOrDisadv) {
+      advantage = advOrDisadv;
+    }
+
+    let severity = 0;
+    switch (advantage) {
+      case WoundAdvantage.Advantage: {
+        const rollOne = random_default.uniformInt(1, 10)();
+        const rollTwo = random_default.uniformInt(1, 10)();
+        severity = Math.max(rollOne, rollTwo);
+        break;
+      }
+
+      case WoundAdvantage.Disadvantage: {
+        const rollOne = random_default.uniformInt(1, 10)();
+        const rollTwo = random_default.uniformInt(1, 10)();
+        severity = Math.min(rollOne, rollTwo);
+        break;
+      }
+
+      default: {
+        severity = random_default.uniformInt(1, 10)();
+      }
+    }
+
     this.wound = this.woundType[severity];
     return this.wound;
   }
