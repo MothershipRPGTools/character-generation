@@ -8,11 +8,11 @@
 # Character generation
 
 ```bash
-❯ npm install @mothership-rpg/char-gen-lib
+❯ npm install @mothership-rpg/characters
 ```
 
 ```typescript
-import { Character } from "@mothership-rpg/char-gen-lib";
+import { Character } from "@mothership-rpg/characters";
 
 const character = new Character();
 console.log(character);
