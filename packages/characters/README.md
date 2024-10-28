@@ -1,9 +1,9 @@
 # @mothership-rpg/characters
 
 ![](https://badgers.space/npm/name/@mothership-rpg/characters)
-![](https://badgers.space/github/release/MothershipRPGTools/character-generation-ts)
-![](https://badgers.space/github/license/MothershipRPGTools/character-generation-ts)
-![](https://badgers.space/codeberg/stars/MothershipRPGTools/character-generation-ts)
+![](https://badgers.space/github/release/MothershipRPGTools/generators-ts)
+![](https://badgers.space/github/license/MothershipRPGTools/generators-ts)
+![](https://badgers.space/codeberg/stars/MothershipRPGTools/generators-ts)
 
 
 # Character generation
