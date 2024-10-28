@@ -75,7 +75,7 @@ console.log(Equipment.random);
 console.log(Weapon.random);
 ```
 
-Output:
+<details><summary>Open to see console output</summary>
 
 ```typescript
 Armor {
@@ -126,6 +126,7 @@ Weapon {
   special: 'Two-handed. Heavy. Barrel can be maneuvered to fire around corners.'
 }
 ```
+</details>
 
 
 # Skill Tree
