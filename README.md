@@ -2,6 +2,7 @@
 
 - [character-generation](#character-generation)
 - [Character generation](#character-generation-1)
+- [Wound generation](#wound-generation)
 - [Skill Tree](#skill-tree)
 
 
@@ -39,6 +40,25 @@ Character {
 ```
 
 </details>
+
+# Wound generation
+
+```bash
+❯ npm install @mothership-rpg/wounds
+```
+
+```typescript
+import { Wound, BluntForce } from "@mothership-rpg/wounds";
+
+const wound = new Wound(BluntForce);
+console.log(wound.rollSeverity());
+```
+
+Output:
+
+```typescript
+Skull fracture. [-] on all rolls.
+```
 
 
 # Skill Tree

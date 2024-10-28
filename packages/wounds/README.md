@@ -1,22 +1,22 @@
-# @mothership-rpg/characters
+# @mothership-rpg/wounds
 
-![](https://badgers.space/npm/name/@mothership-rpg/characters)
+![](https://badgers.space/npm/name/@mothership-rpg/wounds)
 ![](https://badgers.space/github/release/MothershipRPGTools/generators-ts)
 ![](https://badgers.space/github/license/MothershipRPGTools/generators-ts)
 ![](https://badgers.space/codeberg/stars/MothershipRPGTools/generators-ts)
 
 
-# Character generation
+# Wound generation
 
 ```bash
-❯ npm install @mothership-rpg/characters
+❯ npm install @mothership-rpg/wounds
 ```
 
 ```typescript
-import { Character } from "@mothership-rpg/characters";
+import { Wound, BluntForce } from "@mothership-rpg/wounds";
 
-const character = new Character();
-console.log(character);
+const wound = new Wound(BluntForce);
+console.log(wound.rollSeverity());
 ```
 
 Output:
