@@ -1,7 +1,9 @@
 import { faker } from "@faker-js/faker";
 import random_default from "random";
 import { Android, type Class, Marine, Scientist, Teamster } from "./classes";
+import { Patch } from "./patches";
 import type { Skill } from "./skills";
+import { Trinket } from "./trinkets";
 
 export type Stats = {
   strength: number;
@@ -27,6 +29,8 @@ export class Character {
     readonly classType: Class | undefined = random_default.choice<Class>(classes),
     readonly saves: Saves = this.rollSaves(),
     readonly stats: Stats = this.rollStats(),
+    readonly trinket: Trinket = new Trinket(),
+    readonly patch: Patch = new Patch(),
     readonly name: string = faker.person.fullName(),
   ) {
     if (!this.classType) {
