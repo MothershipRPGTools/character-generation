@@ -1,0 +1,35 @@
+{
+  "name": "@mothership-rpg/wounds",
+  "version": "1.0.0",
+  "description": "A library for generating wounds in Mothership RPG",
+  "main": "dist/index.js",
+  "files": ["dist"],
+  "scripts": {
+    "build": "rm -rf dist && tsc && bun build src/index.ts --outdir ./dist --target node",
+    "deploy": "pnpm publish --no-git-checks --access public || echo 'This package version is already published!'",
+    "lint": "biome check src/",
+    "lint:fix": "biome check src/ --fix",
+    "format": "biome format src/",
+    "test": "echo 'No tests yet' || vitest run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/MothershipRPGTools/generators-ts.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MothershipRPGTools/generators-ts/issues"
+  },
+  "homepage": "https://github.com/MothershipRPGTools/generators-ts#readme",
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.2",
+    "@faker-js/faker": "^9.1.0",
+    "bun": "^1.1.29",
+    "typescript": "^5.6.2",
+    "vitest": "^2.1.1"
+  },
+  "dependencies": {
+    "random": "^5.1.1"
+  }
+}
