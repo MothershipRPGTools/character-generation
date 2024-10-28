@@ -1,7 +1,7 @@
-# character-generation
+# Mothership RPG Generation Libraries
 
-- [character-generation](#character-generation)
-- [Character generation](#character-generation-1)
+- [Mothership RPG Generation Libraries](#mothership-rpg-generation-libraries)
+- [Character generation](#character-generation)
 - [Wound generation](#wound-generation)
 - [Items generation](#items-generation)
 - [Skill Tree](#skill-tree)
