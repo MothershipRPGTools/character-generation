@@ -7,7 +7,8 @@
   "private": true,
   "scripts": {
     "gen-skilltree": "bun build src/gen-skilltree.ts --outdir ./dist --target node && node ./dist/gen-skilltree.js",
-    "gen-char": "bun build src/gen-char.ts --outdir ./dist --target node && node ./dist/gen-char.js"
+    "gen-char": "bun build src/gen-char.ts --outdir ./dist --target node && node ./dist/gen-char.js",
+    "gen-wound": "bun build src/gen-wound.ts --outdir ./dist --target node && node ./dist/gen-wound.js"
   },
   "keywords": [],
   "author": "",
