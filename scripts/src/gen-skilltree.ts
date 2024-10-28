@@ -1,4 +1,4 @@
-import { MasterSkill } from "@mothership-rpg/char-gen-lib";
+import { MasterSkill } from "@mothership-rpg/characters";
 
 function onlyUnique(value: string, index: number, array: string[]) {
   return array.indexOf(value) === index;

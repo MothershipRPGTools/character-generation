@@ -1,4 +1,4 @@
-import { Character } from "../../packages/char-gen-lib/src/character";
+import { Character } from "../../packages/characters/src/character";
 
 const character = new Character();
 console.log(character);

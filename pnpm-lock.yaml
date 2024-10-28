@@ -25,7 +25,29 @@ importers:
         specifier: ^13.0.0
         version: 13.0.0(typescript@5.6.3)
 
-  packages/char-gen-lib:
+  packages/characters:
+    dependencies:
+      random:
+        specifier: ^5.1.1
+        version: 5.1.1
+    devDependencies:
+      '@biomejs/biome':
+        specifier: ^1.9.2
+        version: 1.9.4
+      '@faker-js/faker':
+        specifier: ^9.1.0
+        version: 9.1.0
+      bun:
+        specifier: ^1.1.29
+        version: 1.1.33
+      typescript:
+        specifier: ^5.6.2
+        version: 5.6.3
+      vitest:
+        specifier: ^2.1.1
+        version: 2.1.3(@types/node@22.8.1)
+
+  packages/wounds:
     dependencies:
       random:
         specifier: ^5.1.1
@@ -49,9 +71,9 @@ importers:
 
   scripts:
     devDependencies:
-      '@mothership-rpg/char-gen-lib':
+      '@mothership-rpg/characters':
         specifier: workspace:*
-        version: link:../packages/char-gen-lib
+        version: link:../packages/wounds
       '@types/node':
         specifier: ^22.8.1
         version: 22.8.1
@@ -1547,7 +1569,6 @@ packages:
 
   bun@1.1.33:
     resolution: {integrity: sha512-pNcxhsh87TURsaXwwLnOggb1HWdSDgOOjupTuXINmQUZeZ4UzLeVK8h8trzIVA0ECijDex94AkAQ5/JG4r5gkg==}
-    cpu: [arm64, x64]
     os: [darwin, linux, win32]
     hasBin: true
 
