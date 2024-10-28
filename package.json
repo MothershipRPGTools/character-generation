@@ -5,9 +5,9 @@
   "author": "Evan Smith",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MothershipRPGTools/character-generation-ts/issues"
+    "url": "https://github.com/MothershipRPGTools/generators-ts/issues"
   },
-  "homepage": "https://github.com/MothershipRPGTools/character-generation-ts#readme",
+  "homepage": "https://github.com/MothershipRPGTools/generators-ts#readme",
   "devDependencies": {
     "@biomejs/biome": "^1.9.3",
     "@nx/plugin": "20.0.6",
