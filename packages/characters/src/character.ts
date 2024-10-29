@@ -20,9 +20,24 @@ export type Saves = {
   [key: string]: number;
 };
 
+// Array of available character classes
 const classes = [new Marine(), new Android(), new Scientist(), new Teamster()];
 
+/**
+ * Represents a character in the game.
+ */
 export class Character {
+  /**
+   * Creates a new character.
+   * @param maxWounds - The maximum number of wounds the character can sustain.
+   * @param skills - The skills the character possesses.
+   * @param classType - The class type of the character.
+   * @param saves - The saving throws of the character.
+   * @param stats - The stats of the character.
+   * @param trinket - The trinket the character carries.
+   * @param patch - The patch the character carries.
+   * @param name - The name of the character.
+   */
   constructor(
     public maxWounds = 2,
     public skills: Skill[] = [],
@@ -41,22 +56,26 @@ export class Character {
     this.skills = this.classType.chooseSkills(this.skills);
   }
 
+  private roll2d10(): number {
+    return Math.floor(random_default.uniformInt(1, 10)()) + Math.floor(random_default.uniformInt(1, 10)());
+  }
+
   rollStats(): Stats {
     // roll 2d10+25 for each stat
     return {
-      strength: Math.floor(random_default.uniformInt(1, 20)()) + 25,
-      speed: Math.floor(random_default.uniformInt(1, 20)()) + 25,
-      intellect: Math.floor(random_default.uniformInt(1, 20)()) + 25,
-      combat: Math.floor(random_default.uniformInt(1, 20)()) + 25,
+      strength: this.roll2d10() + 25,
+      speed: this.roll2d10() + 25,
+      intellect: this.roll2d10() + 25,
+      combat: this.roll2d10() + 25,
     };
   }
 
   rollSaves(): Saves {
     // roll 2d10+10 for each save
     return {
-      sanity: Math.floor(random_default.uniformInt(1, 20)()) + 10,
-      fear: Math.floor(random_default.uniformInt(1, 20)()) + 10,
-      body: Math.floor(random_default.uniformInt(1, 20)()) + 10,
+      sanity: this.roll2d10() + 10,
+      fear: this.roll2d10() + 10,
+      body: this.roll2d10() + 10,
     };
   }
 }

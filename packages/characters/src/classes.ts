@@ -8,6 +8,14 @@ export abstract class Class {
   abstract applyStatChanges(character: Character): Character;
   abstract chooseSkills(currentSkills: Skill[]): Skill[];
 
+  /**
+   * Chooses a skill from the skill pool that is not already in the current skills.
+   * Throws an error if no available skills are found.
+   *
+   * @param skillPool - The pool of skills to choose from.
+   * @param currentSkills - The list of skills the character currently has.
+   * @returns The chosen skill.
+   */
   chooseASkill(skillPool: Skill[], currentSkills: Skill[]): Skill {
     const availableSkills = skillPool.filter((skill) => !currentSkills.includes(skill));
     const chosenSkill = random_default.choice(availableSkills);
