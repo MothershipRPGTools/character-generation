@@ -10,8 +10,8 @@
   "homepage": "https://github.com/MothershipRPGTools/generators-ts#readme",
   "devDependencies": {
     "@biomejs/biome": "^1.9.3",
-    "@nx/plugin": "20.0.6",
-    "nx": "20.0.6",
+    "@nx/plugin": "20.0.12",
+    "nx": "20.0.12",
     "syncpack": "^13.0.0"
   },
   "dependencies": {
