@@ -19,7 +19,7 @@
     "@mothership-rpg/wounds": "workspace:*",
     "@mothership-rpg/items": "workspace:*",
     "@types/node": "^22.8.1",
-    "bun": "^1.1.29",
+    "bun": "^1.1.38",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.2"
   }
